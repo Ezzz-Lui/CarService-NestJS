@@ -20,9 +20,6 @@ export class CarsController {
     @Get(':id')
     getBrandCarById( @Param('id', ParseIntPipe ) id:number ){
 
-        //excepcion inesperada
-        throw new Error('Auxilio')
-
        return this.carsService.findOneById( id )
     }
 
