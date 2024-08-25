@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post, UsePipes, ValidationPipe } from '@nestjs/common';
 import { CarsService } from './cars.service';
 import { UUID } from 'crypto';
+import { CreatCarDTO } from './dto/create-car.dto';
 
 
 @Controller('cars')
@@ -27,8 +28,9 @@ export class CarsController {
 
     //otros metodos HTPP: POST
     @Post()
-    createCar( @Body() bodyRequest: any ){
-        return bodyRequest;
+    @UsePipes( ValidationPipe )
+    createCar( @Body() createDTO: CreatCarDTO ){
+        return createDTO;
     }
 
     @Patch(':id')
