@@ -1,6 +1,7 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, ParseUUIDPipe, Patch, Post } from '@nestjs/common';
 import { CarsService } from './cars.service';
-import { error } from 'console';
+import { UUID } from 'crypto';
+
 
 @Controller('cars')
 export class CarsController {
@@ -18,7 +19,7 @@ export class CarsController {
 
     //Validacion con pipes que el id sea un numero
     @Get(':id')
-    getBrandCarById( @Param('id', ParseIntPipe ) id:number ){
+    getBrandCarById( @Param('id') id:string ){
 
        return this.carsService.findOneById( id )
     }
