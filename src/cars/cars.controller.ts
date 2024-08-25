@@ -19,7 +19,7 @@ export class CarsController {
 
     //Validacion con pipes que el id sea un numero
     @Get(':id')
-    getBrandCarById( @Param('id') id:string ){
+    getBrandCarById( @Param('id', ParseUUIDPipe) id:string ){
 
        return this.carsService.findOneById( id )
     }
