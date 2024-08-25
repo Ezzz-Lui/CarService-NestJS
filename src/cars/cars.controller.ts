@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { CarsService } from './cars.service';
 
 @Controller('cars')
@@ -14,9 +14,11 @@ export class CarsController {
         return this.carsService.findAll()
     }
 
+
+    //Validacion con pipes que el id sea un numero
     @Get(':id')
-    getBrandCarById( @Param('id') id:string ){
-       return this.carsService.findOneById( +id )
+    getBrandCarById( @Param('id', ParseIntPipe ) id:number ){
+       return this.carsService.findOneById( id )
     }
 
 }
