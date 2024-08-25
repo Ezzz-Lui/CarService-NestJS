@@ -30,9 +30,8 @@ export class CarsService {
 
         //Manejar excepciones con Exception Filter
         //Mandar un error 404 si el id del carro no existe en nuestra litsta
-        if ( !carId ){
-            throw new NotFoundException(`Car with id '${ id }' not found`);
-        }
+        if ( !carId ) throw new NotFoundException(`Car with id '${ id }' not found`);
+        
 
         return carId;
 
