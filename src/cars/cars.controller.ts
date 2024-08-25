@@ -1,5 +1,6 @@
 import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { CarsService } from './cars.service';
+import { error } from 'console';
 
 @Controller('cars')
 export class CarsController {
@@ -18,6 +19,10 @@ export class CarsController {
     //Validacion con pipes que el id sea un numero
     @Get(':id')
     getBrandCarById( @Param('id', ParseIntPipe ) id:number ){
+
+        //excepcion inesperada
+        throw new Error('Auxilio')
+
        return this.carsService.findOneById( id )
     }
 
