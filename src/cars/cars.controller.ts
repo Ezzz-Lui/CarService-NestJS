@@ -25,15 +25,19 @@ export class CarsController {
     }
 
 
-    //otros metodos HTPP: POST
+    //Metodo HTPP: POST
     @Post()
     createCar( @Body() createDTO: CreatCarDTO ){
-        return createDTO;
+        return this.carsService.create( createDTO );
     }
 
+    //Metodo HTPP: Update
     @Patch(':id')
-    updateCar( @Body() bodyUpdate: any ){
-        return bodyUpdate;
+    updateCar( 
+        @Param('id', ParseUUIDPipe) id: number,
+        @Body() createCarDTO: CreatCarDTO )
+        {
+        return createCarDTO;
     }
 
 
