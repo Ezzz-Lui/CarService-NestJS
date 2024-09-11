@@ -4,5 +4,5 @@ export class Brand {
     name: string;
 
     createdAt: number;
-    updatedAt: number;
+    updatedAt?: number;
 }
