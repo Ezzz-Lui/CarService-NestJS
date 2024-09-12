@@ -2,7 +2,7 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-# Car Dealship - NestJS (Without database)
+# Cars & Brands - NestJS (Without database)
 
 
 ### Load DB with data(testing)
